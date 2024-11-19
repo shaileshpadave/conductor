@@ -106,6 +106,7 @@ class WorkflowTestUtil {
         optionalTask.setTimeoutPolicy(TaskDef.TimeoutPolicy.RETRY)
         optionalTask.setRetryDelaySeconds(0)
         optionalTask.setResponseTimeoutSeconds(5)
+        optionalTask.setTotalTimeoutSeconds(30)
         optionalTask.setOwnerEmail(DEFAULT_EMAIL_ADDRESS)
 
         TaskDef simpleSubWorkflowTask = new TaskDef()
@@ -118,6 +119,7 @@ class WorkflowTestUtil {
         subWorkflowTask.setRetryCount(1)
         subWorkflowTask.setResponseTimeoutSeconds(5)
         subWorkflowTask.setRetryDelaySeconds(0)
+        subWorkflowTask.setTotalTimeoutSeconds(20)
         subWorkflowTask.setOwnerEmail(DEFAULT_EMAIL_ADDRESS)
 
         TaskDef waitTimeOutTask = new TaskDef()
@@ -127,6 +129,7 @@ class WorkflowTestUtil {
         waitTimeOutTask.retryCount = 1
         waitTimeOutTask.timeoutPolicy = TaskDef.TimeoutPolicy.RETRY
         waitTimeOutTask.retryDelaySeconds = 10
+        waitTimeOutTask.totalTimeoutSeconds = 50
         waitTimeOutTask.ownerEmail = DEFAULT_EMAIL_ADDRESS
 
         TaskDef userTask = new TaskDef()
@@ -136,6 +139,7 @@ class WorkflowTestUtil {
         userTask.setRetryCount(1)
         userTask.setTimeoutPolicy(TaskDef.TimeoutPolicy.RETRY)
         userTask.setRetryDelaySeconds(10)
+        userTask.setTotalTimeoutSeconds(50)
         userTask.setOwnerEmail(DEFAULT_EMAIL_ADDRESS)
 
         TaskDef concurrentExecutionLimitedTask = new TaskDef()
