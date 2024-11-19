@@ -65,6 +65,7 @@ public class MetadataManagement {
         taskDef2.setDescription("task to notify users");
         taskDef2.setOwnerEmail("test@orkes.io");
         taskDef2.setResponseTimeoutSeconds(10);
+        taskDef2.setTotalTimeoutSeconds(120);
         taskDef2.setRetryCount(3);
         // At any given time, max 10 executions of this task will be allowed. Tasks to be scheduled
         // after reaching max
