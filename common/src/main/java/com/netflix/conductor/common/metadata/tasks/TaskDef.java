@@ -129,7 +129,7 @@ public class TaskDef extends Auditable {
 
     @ProtoField(id = 22)
     @NotNull
-    private Long totalTimeoutSeconds;
+    private long totalTimeoutSeconds;
 
     private SchemaDef inputSchema;
     private SchemaDef outputSchema;
@@ -237,7 +237,9 @@ public class TaskDef extends Auditable {
     /**
      * @param totalTimeoutSeconds the timeoutSeconds to set
      */
-    public void setTotalTimeoutSeconds(long totalTimeoutSeconds) {}
+    public void setTotalTimeoutSeconds(long totalTimeoutSeconds) {
+        this.totalTimeoutSeconds = totalTimeoutSeconds;
+    }
     /**
      * @return Returns the input keys
      */

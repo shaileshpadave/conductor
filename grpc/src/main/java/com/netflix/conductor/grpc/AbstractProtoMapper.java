@@ -877,9 +877,7 @@ public abstract class AbstractProtoMapper {
         if (from.getBaseType() != null) {
             to.setBaseType( from.getBaseType() );
         }
-        if (from.getTotalTimeoutSeconds() != null) {
-            to.setTotalTimeoutSeconds( from.getTotalTimeoutSeconds() );
-        }
+        to.setTotalTimeoutSeconds( from.getTotalTimeoutSeconds() );
         return to.build();
     }
 
