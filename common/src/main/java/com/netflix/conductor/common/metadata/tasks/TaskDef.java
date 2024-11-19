@@ -146,7 +146,12 @@ public class TaskDef extends Auditable {
         this.description = description;
     }
 
-    public TaskDef(String name, String description, int retryCount, long timeoutSeconds, long totalTimeoutSeconds) {
+    public TaskDef(
+            String name,
+            String description,
+            int retryCount,
+            long timeoutSeconds,
+            long totalTimeoutSeconds) {
         this.name = name;
         this.description = description;
         this.retryCount = retryCount;
@@ -240,6 +245,7 @@ public class TaskDef extends Auditable {
     public void setTotalTimeoutSeconds(long totalTimeoutSeconds) {
         this.totalTimeoutSeconds = totalTimeoutSeconds;
     }
+
     /**
      * @return Returns the input keys
      */
