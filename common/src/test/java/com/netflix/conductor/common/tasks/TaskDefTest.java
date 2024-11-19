@@ -59,6 +59,7 @@ public class TaskDefTest {
         taskDef.setName("task1");
         taskDef.setRetryCount(-1);
         taskDef.setTimeoutSeconds(1000);
+        taskDef.setTotalTimeoutSeconds(2000);
         taskDef.setResponseTimeoutSeconds(1001);
 
         Set<ConstraintViolation<Object>> result = validator.validate(taskDef);
