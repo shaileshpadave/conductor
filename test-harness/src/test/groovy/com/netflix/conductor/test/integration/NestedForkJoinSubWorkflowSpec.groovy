@@ -59,7 +59,7 @@ class NestedForkJoinSubWorkflowSpec extends AbstractSpecification {
         persistedTask2Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_2').get()
         def modifiedTask2Definition = new TaskDef(persistedTask2Definition.name, persistedTask2Definition.description,
                 persistedTask2Definition.ownerEmail, 0, persistedTask2Definition.timeoutSeconds,
-                persistedTask2Definition.responseTimeoutSeconds)
+                persistedTask2Definition.responseTimeoutSeconds, persistedTask2Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTask2Definition)
 
         and: "an existing workflow with subworkflow and registered definitions"

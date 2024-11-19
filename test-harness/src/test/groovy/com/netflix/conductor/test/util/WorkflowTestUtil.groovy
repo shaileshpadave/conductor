@@ -80,15 +80,15 @@ class WorkflowTestUtil {
 
         (0..20).collect { "integration_task_$it" }
                 .findAll { !getPersistedTaskDefinition(it).isPresent() }
-                .collect { new TaskDef(it, it, DEFAULT_EMAIL_ADDRESS, 1, 120, 120) }
+                .collect { new TaskDef(it, it, DEFAULT_EMAIL_ADDRESS, 1, 120, 120, 500) }
                 .forEach { metadataService.registerTaskDef([it]) }
 
         (0..4).collect { "integration_task_0_RT_$it" }
                 .findAll { !getPersistedTaskDefinition(it).isPresent() }
-                .collect { new TaskDef(it, it, DEFAULT_EMAIL_ADDRESS, 0, 120, 120) }
+                .collect { new TaskDef(it, it, DEFAULT_EMAIL_ADDRESS, 0, 120, 120, 500) }
                 .forEach { metadataService.registerTaskDef([it]) }
 
-        metadataService.registerTaskDef([new TaskDef('short_time_out', 'short_time_out', DEFAULT_EMAIL_ADDRESS, 1, 5, 5)])
+        metadataService.registerTaskDef([new TaskDef('short_time_out', 'short_time_out', DEFAULT_EMAIL_ADDRESS, 1, 5, 5, 50)])
 
         //This taskWithResponseTimeOut is required by the integration test which exercises the response time out scenarios
         TaskDef taskWithResponseTimeOut = new TaskDef()
@@ -97,6 +97,7 @@ class WorkflowTestUtil {
         taskWithResponseTimeOut.retryCount = RETRY_COUNT
         taskWithResponseTimeOut.retryDelaySeconds = 0
         taskWithResponseTimeOut.responseTimeoutSeconds = 10
+        taskWithResponseTimeOut.totalTimeoutSeconds = 500
         taskWithResponseTimeOut.ownerEmail = DEFAULT_EMAIL_ADDRESS
 
         TaskDef optionalTask = new TaskDef()
@@ -163,6 +164,7 @@ class WorkflowTestUtil {
         eventTaskX.name = 'eventX'
         eventTaskX.timeoutSeconds = 10
         eventTaskX.responseTimeoutSeconds = 10
+        eventTaskX.totalTimeoutSeconds = 100
         eventTaskX.ownerEmail = DEFAULT_EMAIL_ADDRESS
 
         metadataService.registerTaskDef(
