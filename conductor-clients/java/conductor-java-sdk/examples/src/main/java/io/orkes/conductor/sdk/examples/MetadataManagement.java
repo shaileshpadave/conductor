@@ -58,7 +58,7 @@ public class MetadataManagement {
         metadataClient = orkesClients.getMetadataClient();
 
         // Create task definitions
-        taskDef = new TaskDef(taskName, "task to update database", "test@orkes.io", 3, 4, 3);
+        taskDef = new TaskDef(taskName, "task to update database", "test@orkes.io", 3, 4, 3,50);
 
         taskDef2 = new TaskDef();
         taskDef2.setName(taskName2);
