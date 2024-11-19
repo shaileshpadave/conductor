@@ -82,6 +82,7 @@ public class TaskDefTest {
         taskDef.setName("test-task");
         taskDef.setRetryCount(1);
         taskDef.setTimeoutSeconds(1000);
+        taskDef.setTotalTimeoutSeconds(2000);
         taskDef.setResponseTimeoutSeconds(1);
 
         Set<ConstraintViolation<Object>> result = validator.validate(taskDef);
@@ -102,6 +103,7 @@ public class TaskDefTest {
         taskDef.setRetryCount(1);
         taskDef.setTimeoutSeconds(1000);
         taskDef.setResponseTimeoutSeconds(1);
+        taskDef.setTotalTimeoutSeconds(2000);
         taskDef.setOwnerEmail("owner@test.com");
 
         Set<ConstraintViolation<Object>> result = validator.validate(taskDef);

@@ -723,7 +723,7 @@ public class DeciderService {
             return;
         }
 
-        if(elapsedTimeFromFirstTaskExecution < totalTaskTimeout) {
+        if (elapsedTimeFromFirstTaskExecution < totalTaskTimeout) {
             return;
         }
 
