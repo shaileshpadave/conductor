@@ -629,7 +629,6 @@ public class DeciderService {
         rescheduled.setStartTime(0);
         rescheduled.setEndTime(0);
         rescheduled.setWorkerId(null);
-        rescheduled.setFirstStartTime(task.getFirstStartTime());
 
         if (StringUtils.isNotBlank(task.getExternalInputPayloadStoragePath())) {
             rescheduled.setExternalInputPayloadStoragePath(
@@ -711,19 +710,11 @@ public class DeciderService {
         }
 
         long timeout = 1000L * taskDef.getTimeoutSeconds();
-        long totalTaskTimeout = 1000L * taskDef.getTotalTimeoutSeconds();
         long now = System.currentTimeMillis();
         long elapsedTime =
                 now - (task.getStartTime() + ((long) task.getStartDelayInSeconds() * 1000L));
 
-        long elapsedTimeFromFirstTaskExecution =
-                now - (task.getFirstStartTime() + ((long) task.getStartDelayInSeconds() * 1000L));
-
         if (elapsedTime < timeout) {
-            return;
-        }
-
-        if (elapsedTimeFromFirstTaskExecution < totalTaskTimeout) {
             return;
         }
 
