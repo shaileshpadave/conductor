@@ -147,7 +147,9 @@ public class AsyncSystemTaskExecutor {
             }
 
             if (task.getStatus() == TaskModel.Status.SCHEDULED) {
-                task.setStartTime(System.currentTimeMillis());
+                long currTime = System.currentTimeMillis();
+                task.setStartTime(currTime);
+                task.setFirstStartTime(currTime);
                 Monitors.recordQueueWaitTime(task.getTaskType(), task.getQueueWaitTime());
                 systemTask.start(workflow, task, workflowExecutor);
             } else if (task.getStatus() == TaskModel.Status.IN_PROGRESS) {
