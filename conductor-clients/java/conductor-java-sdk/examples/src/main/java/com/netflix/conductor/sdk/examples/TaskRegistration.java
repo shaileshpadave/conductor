@@ -47,6 +47,7 @@ public class TaskRegistration {
         //for the long running tasks, timeout if the task does not get updated in COMPLETED or IN_PROGRESS status in 60 seconds after the last update
         taskDef.setResponseTimeoutSeconds(60);
 
+        taskDef.setTotalTimeoutSeconds(600);
         //only allow 100 executions in a 10-second window! -- Note, this is complementary to concurrent_exec_limit
         taskDef.setRateLimitPerFrequency(100);
         taskDef.setRateLimitFrequencyInSeconds(10);

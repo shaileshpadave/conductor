@@ -160,7 +160,7 @@ class SimpleWorkflowSpec extends AbstractSpecification {
         def persistedTask1Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_1').get()
         def modifiedTask1Definition = new TaskDef(persistedTask1Definition.name, persistedTask1Definition.description,
                 persistedTask1Definition.ownerEmail, 1, persistedTask1Definition.timeoutSeconds,
-                persistedTask1Definition.responseTimeoutSeconds)
+                persistedTask1Definition.responseTimeoutSeconds, persistedTask1Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTask1Definition)
         def workflowDef = metadataService.getWorkflowDef(LINEAR_WORKFLOW_T1_T2, 1)
 
@@ -360,7 +360,7 @@ class SimpleWorkflowSpec extends AbstractSpecification {
         def persistedTask1Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_1').get()
         def modifiedTaskDefinition = new TaskDef(persistedTask1Definition.name, persistedTask1Definition.description,
                 persistedTask1Definition.ownerEmail, 0, persistedTask1Definition.timeoutSeconds,
-                persistedTask1Definition.responseTimeoutSeconds)
+                persistedTask1Definition.responseTimeoutSeconds, persistedTask1Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTaskDefinition)
 
         when: "Get the workflow definition associated with the simple workflow"
@@ -438,7 +438,7 @@ class SimpleWorkflowSpec extends AbstractSpecification {
         def persistedTask1Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_1').get()
         def modifiedTaskDefinition = new TaskDef(persistedTask1Definition.name, persistedTask1Definition.description,
                 persistedTask1Definition.ownerEmail, 0, persistedTask1Definition.timeoutSeconds,
-                persistedTask1Definition.responseTimeoutSeconds)
+                persistedTask1Definition.responseTimeoutSeconds, persistedTask1Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTaskDefinition)
 
         when: "Get the workflow definition associated with the simple workflow"
@@ -537,7 +537,7 @@ class SimpleWorkflowSpec extends AbstractSpecification {
         def integrationTask2Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_2').get()
         def modifiedTaskDefinition = new TaskDef(integrationTask2Definition.name, integrationTask2Definition.description,
                 integrationTask2Definition.ownerEmail, 3, integrationTask2Definition.timeoutSeconds,
-                integrationTask2Definition.responseTimeoutSeconds)
+                integrationTask2Definition.responseTimeoutSeconds, integrationTask2Definition.totalTimeoutSeconds)
         modifiedTaskDefinition.retryDelaySeconds = 2
         metadataService.updateTaskDef(modifiedTaskDefinition)
 
@@ -614,7 +614,7 @@ class SimpleWorkflowSpec extends AbstractSpecification {
         def integrationTask1Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_1').get()
         def modifiedTaskDefinition = new TaskDef(integrationTask1Definition.name, integrationTask1Definition.description,
                 integrationTask1Definition.ownerEmail, 1, integrationTask1Definition.timeoutSeconds,
-                integrationTask1Definition.responseTimeoutSeconds)
+                integrationTask1Definition.responseTimeoutSeconds, integrationTask1Definition.totalTimeoutSeconds)
         modifiedTaskDefinition.retryDelaySeconds = 0
         metadataService.updateTaskDef(modifiedTaskDefinition)
 
@@ -881,7 +881,7 @@ class SimpleWorkflowSpec extends AbstractSpecification {
         def integrationTask1Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_1').get()
         def modifiedTaskDefinition = new TaskDef(integrationTask1Definition.name, integrationTask1Definition.description,
                 integrationTask1Definition.ownerEmail, 0, integrationTask1Definition.timeoutSeconds,
-                integrationTask1Definition.responseTimeoutSeconds)
+                integrationTask1Definition.responseTimeoutSeconds, integrationTask1Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTaskDefinition)
 
         def simpleWorkflowDefinition = metadataService.getWorkflowDef(LINEAR_WORKFLOW_T1_T2, 1)

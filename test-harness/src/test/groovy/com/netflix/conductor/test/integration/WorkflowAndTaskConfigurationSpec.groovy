@@ -329,7 +329,7 @@ class WorkflowAndTaskConfigurationSpec extends AbstractSpecification {
         setup: "Register a task definition with retry policy on time out"
         def persistedTask1Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_1').get()
         def modifiedTaskDefinition = new TaskDef(persistedTask1Definition.name, persistedTask1Definition.description,
-                persistedTask1Definition.ownerEmail, 1, 1, 1)
+                persistedTask1Definition.ownerEmail, 1, 1, 1, 30)
         modifiedTaskDefinition.retryDelaySeconds = 0
         modifiedTaskDefinition.timeoutPolicy = TaskDef.TimeoutPolicy.RETRY
         metadataService.updateTaskDef(modifiedTaskDefinition)

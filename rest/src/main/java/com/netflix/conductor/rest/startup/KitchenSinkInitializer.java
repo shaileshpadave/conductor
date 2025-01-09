@@ -83,12 +83,12 @@ public class KitchenSinkInitializer {
         List<TaskDef> taskDefs = new LinkedList<>();
         TaskDef taskDef;
         for (int i = 0; i < 40; i++) {
-            taskDef = new TaskDef("task_" + i, "task_" + i, 1, 0);
+            taskDef = new TaskDef("task_" + i, "task_" + i, 1, 0, 10);
             taskDef.setOwnerEmail("example@email.com");
             taskDefs.add(taskDef);
         }
 
-        taskDef = new TaskDef("search_elasticsearch", "search_elasticsearch", 1, 0);
+        taskDef = new TaskDef("search_elasticsearch", "search_elasticsearch", 1, 0, 10);
         taskDef.setOwnerEmail("example@email.com");
         taskDefs.add(taskDef);
 

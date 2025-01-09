@@ -127,6 +127,10 @@ public class TaskDef extends Auditable {
     @ProtoField(id = 21)
     private String baseType;
 
+    @ProtoField(id = 22)
+    @NotNull
+    private long totalTimeoutSeconds;
+
     private SchemaDef inputSchema;
     private SchemaDef outputSchema;
     private boolean enforceSchema;
@@ -142,11 +146,17 @@ public class TaskDef extends Auditable {
         this.description = description;
     }
 
-    public TaskDef(String name, String description, int retryCount, long timeoutSeconds) {
+    public TaskDef(
+            String name,
+            String description,
+            int retryCount,
+            long timeoutSeconds,
+            long totalTimeoutSeconds) {
         this.name = name;
         this.description = description;
         this.retryCount = retryCount;
         this.timeoutSeconds = timeoutSeconds;
+        this.totalTimeoutSeconds = totalTimeoutSeconds;
     }
 
     public TaskDef(
@@ -155,13 +165,15 @@ public class TaskDef extends Auditable {
             String ownerEmail,
             int retryCount,
             long timeoutSeconds,
-            long responseTimeoutSeconds) {
+            long responseTimeoutSeconds,
+            long totalTimeoutSeconds) {
         this.name = name;
         this.description = description;
         this.ownerEmail = ownerEmail;
         this.retryCount = retryCount;
         this.timeoutSeconds = timeoutSeconds;
         this.responseTimeoutSeconds = responseTimeoutSeconds;
+        this.totalTimeoutSeconds = totalTimeoutSeconds;
     }
 
     /**
@@ -218,6 +230,20 @@ public class TaskDef extends Auditable {
      */
     public void setTimeoutSeconds(long timeoutSeconds) {
         this.timeoutSeconds = timeoutSeconds;
+    }
+
+    /**
+     * @return the total timeout in seconds
+     */
+    public long getTotalTimeoutSeconds() {
+        return totalTimeoutSeconds;
+    }
+
+    /**
+     * @param totalTimeoutSeconds the timeoutSeconds to set
+     */
+    public void setTotalTimeoutSeconds(long totalTimeoutSeconds) {
+        this.totalTimeoutSeconds = totalTimeoutSeconds;
     }
 
     /**

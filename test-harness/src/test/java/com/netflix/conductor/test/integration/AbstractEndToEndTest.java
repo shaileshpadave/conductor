@@ -260,7 +260,8 @@ public abstract class AbstractEndToEndTest {
                             DEFAULT_EMAIL_ADDRESS,
                             3,
                             60,
-                            60);
+                            60,
+                            200);
             def.setTimeoutPolicy(TaskDef.TimeoutPolicy.RETRY);
             definitions.add(def);
         }

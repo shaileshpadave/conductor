@@ -86,6 +86,7 @@ public class WorkflowStatusPublisherIntegrationTest {
         taskDef.setName("junit_task_1");
         taskDef.setTimeoutSeconds(120);
         taskDef.setResponseTimeoutSeconds(120);
+        taskDef.setTotalTimeoutSeconds(500);
         taskDef.setRetryCount(1);
         taskDef.setOwnerEmail(DEFAULT_OWNER_EMAIL);
         metadataService.registerTaskDef(Collections.singletonList(taskDef));

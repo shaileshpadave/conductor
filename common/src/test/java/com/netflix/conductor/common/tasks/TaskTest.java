@@ -98,7 +98,7 @@ public class TaskTest {
         final Task task = new Task();
         // In order to avoid forgetting putting inside the copy method the newly added fields check
         // the number of declared fields.
-        final int expectedTaskFieldsNumber = 41;
+        final int expectedTaskFieldsNumber = 42;
         final int declaredFieldsNumber = task.getClass().getDeclaredFields().length;
 
         assertEquals(expectedTaskFieldsNumber, declaredFieldsNumber);
@@ -133,6 +133,7 @@ public class TaskTest {
         task.setIsolationGroupId("groupId");
         task.setStartTime(12L);
         task.setEndTime(20L);
+        task.setFirstStartTime(12L);
         task.setScheduledTime(7L);
         task.setRetried(false);
         task.setReasonForIncompletion("");

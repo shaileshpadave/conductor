@@ -153,7 +153,8 @@ class DynamicForkJoinSpec extends AbstractSpecification {
         def persistedTask2Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_2').get()
         def modifiedTask2Definition = new TaskDef(persistedTask2Definition.name,
                 persistedTask2Definition.description, persistedTask2Definition.ownerEmail, 0,
-                persistedTask2Definition.timeoutSeconds, persistedTask2Definition.responseTimeoutSeconds)
+                persistedTask2Definition.timeoutSeconds, persistedTask2Definition.responseTimeoutSeconds,
+                persistedTask2Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTask2Definition)
 
         when: " a dynamic fork join workflow is started"
@@ -237,7 +238,8 @@ class DynamicForkJoinSpec extends AbstractSpecification {
         def persistedTask2Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_2').get()
         def modifiedTask2Definition = new TaskDef(persistedTask2Definition.name,
                 persistedTask2Definition.description, persistedTask2Definition.ownerEmail, 0,
-                persistedTask2Definition.timeoutSeconds, persistedTask2Definition.responseTimeoutSeconds)
+                persistedTask2Definition.timeoutSeconds, persistedTask2Definition.responseTimeoutSeconds,
+                persistedTask2Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTask2Definition)
 
         when: " a dynamic fork join workflow is started"
@@ -390,7 +392,8 @@ class DynamicForkJoinSpec extends AbstractSpecification {
         def persistedTask2Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_2').get()
         def modifiedTask2Definition = new TaskDef(persistedTask2Definition.name,
                 persistedTask2Definition.description, persistedTask2Definition.ownerEmail, 0,
-                persistedTask2Definition.timeoutSeconds, persistedTask2Definition.responseTimeoutSeconds)
+                persistedTask2Definition.timeoutSeconds, persistedTask2Definition.responseTimeoutSeconds,
+                persistedTask2Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTask2Definition)
 
         when: "the dynamic fork join workflow is started"

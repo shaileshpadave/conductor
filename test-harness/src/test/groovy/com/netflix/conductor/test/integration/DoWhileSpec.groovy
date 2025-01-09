@@ -739,7 +739,7 @@ class DoWhileSpec extends AbstractSpecification {
         def persistedTaskDefinition = workflowTestUtil.getPersistedTaskDefinition(taskName).get()
         def modifiedTaskDefinition = new TaskDef(persistedTaskDefinition.name, persistedTaskDefinition.description,
                 persistedTaskDefinition.ownerEmail, 0, persistedTaskDefinition.timeoutSeconds,
-                persistedTaskDefinition.responseTimeoutSeconds)
+                persistedTaskDefinition.responseTimeoutSeconds,persistedTaskDefinition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedTaskDefinition)
 
         when: "A do while workflow is started"
@@ -876,7 +876,7 @@ class DoWhileSpec extends AbstractSpecification {
         def persistedTaskDefinition = workflowTestUtil.getPersistedTaskDefinition(taskName).get()
         def modifiedTaskDefinition = new TaskDef(persistedTaskDefinition.name, persistedTaskDefinition.description,
                 persistedTaskDefinition.ownerEmail, 1, persistedTaskDefinition.timeoutSeconds,
-                persistedTaskDefinition.responseTimeoutSeconds)
+                persistedTaskDefinition.responseTimeoutSeconds,persistedTaskDefinition.totalTimeoutSeconds)
         modifiedTaskDefinition.setRetryDelaySeconds(0)
         metadataService.updateTaskDef(modifiedTaskDefinition)
 

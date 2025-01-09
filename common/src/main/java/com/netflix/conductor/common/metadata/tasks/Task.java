@@ -202,6 +202,9 @@ public class Task {
     @ProtoField(id = 42)
     private boolean subworkflowChanged;
 
+    @ProtoField(id = 43)
+    private long firstStartTime;
+
     // If the task is an event associated with a parent task, the id of the parent task
     private String parentTaskId;
 
@@ -736,6 +739,14 @@ public class Task {
         this.subworkflowChanged = subworkflowChanged;
     }
 
+    public long getFirstStartTime() {
+        return firstStartTime;
+    }
+
+    public void setFirstStartTime(long firstStartTime) {
+        this.firstStartTime = firstStartTime;
+    }
+
     public String getSubWorkflowId() {
         // For backwards compatibility
         if (StringUtils.isNotBlank(subWorkflowId)) {
@@ -813,6 +824,7 @@ public class Task {
     public Task deepCopy() {
         Task deepCopy = copy();
         deepCopy.setStartTime(startTime);
+        deepCopy.setFirstStartTime(firstStartTime);
         deepCopy.setScheduledTime(scheduledTime);
         deepCopy.setEndTime(endTime);
         deepCopy.setWorkerId(workerId);

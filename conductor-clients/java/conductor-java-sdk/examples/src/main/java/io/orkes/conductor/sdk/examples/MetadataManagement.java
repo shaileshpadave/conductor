@@ -58,13 +58,14 @@ public class MetadataManagement {
         metadataClient = orkesClients.getMetadataClient();
 
         // Create task definitions
-        taskDef = new TaskDef(taskName, "task to update database", "test@orkes.io", 3, 4, 3);
+        taskDef = new TaskDef(taskName, "task to update database", "test@orkes.io", 3, 4, 3,50);
 
         taskDef2 = new TaskDef();
         taskDef2.setName(taskName2);
         taskDef2.setDescription("task to notify users");
         taskDef2.setOwnerEmail("test@orkes.io");
         taskDef2.setResponseTimeoutSeconds(10);
+        taskDef2.setTotalTimeoutSeconds(120);
         taskDef2.setRetryCount(3);
         // At any given time, max 10 executions of this task will be allowed. Tasks to be scheduled
         // after reaching max

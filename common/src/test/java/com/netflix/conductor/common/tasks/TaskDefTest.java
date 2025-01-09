@@ -45,7 +45,8 @@ public class TaskDefTest {
         String description = "desc";
         int retryCount = 10;
         int timeout = 100;
-        TaskDef def = new TaskDef(name, description, retryCount, timeout);
+        int totalTimeout = 1100;
+        TaskDef def = new TaskDef(name, description, retryCount, timeout, totalTimeout);
         assertEquals(36_00, def.getResponseTimeoutSeconds());
         assertEquals(name, def.getName());
         assertEquals(description, def.getDescription());
@@ -59,6 +60,7 @@ public class TaskDefTest {
         taskDef.setName("task1");
         taskDef.setRetryCount(-1);
         taskDef.setTimeoutSeconds(1000);
+        taskDef.setTotalTimeoutSeconds(2000);
         taskDef.setResponseTimeoutSeconds(1001);
 
         Set<ConstraintViolation<Object>> result = validator.validate(taskDef);
@@ -80,6 +82,7 @@ public class TaskDefTest {
         taskDef.setName("test-task");
         taskDef.setRetryCount(1);
         taskDef.setTimeoutSeconds(1000);
+        taskDef.setTotalTimeoutSeconds(2000);
         taskDef.setResponseTimeoutSeconds(1);
 
         Set<ConstraintViolation<Object>> result = validator.validate(taskDef);
@@ -100,6 +103,7 @@ public class TaskDefTest {
         taskDef.setRetryCount(1);
         taskDef.setTimeoutSeconds(1000);
         taskDef.setResponseTimeoutSeconds(1);
+        taskDef.setTotalTimeoutSeconds(2000);
         taskDef.setOwnerEmail("owner@test.com");
 
         Set<ConstraintViolation<Object>> result = validator.validate(taskDef);

@@ -94,6 +94,9 @@ public class TaskModel {
     /** Time when the task was last updated */
     private long updateTime;
 
+    /** Time when first task started */
+    private long firstStartTime;
+
     private int startDelayInSeconds;
 
     private String retriedTaskId;
@@ -533,6 +536,14 @@ public class TaskModel {
 
     public void setIteration(int iteration) {
         this.iteration = iteration;
+    }
+
+    public long getFirstStartTime() {
+        return firstStartTime;
+    }
+
+    public void setFirstStartTime(long firstStartTime) {
+        this.firstStartTime = firstStartTime;
     }
 
     public String getSubWorkflowId() {

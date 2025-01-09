@@ -185,7 +185,8 @@ class ForkJoinSpec extends AbstractSpecification {
         def persistedIntegrationTask2Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_2').get()
         def modifiedIntegrationTask2Definition = new TaskDef(persistedIntegrationTask2Definition.name,
                 persistedIntegrationTask2Definition.description, persistedIntegrationTask2Definition.ownerEmail, 0,
-                0, persistedIntegrationTask2Definition.responseTimeoutSeconds)
+                0, persistedIntegrationTask2Definition.responseTimeoutSeconds,
+                persistedIntegrationTask2Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedIntegrationTask2Definition)
 
         when: "A fork join workflow is started"
@@ -276,7 +277,8 @@ class ForkJoinSpec extends AbstractSpecification {
         def persistedIntegrationTask1Definition = workflowTestUtil.getPersistedTaskDefinition('integration_task_1').get()
         def modifiedIntegrationTask1Definition = new TaskDef(persistedIntegrationTask1Definition.name,
                 persistedIntegrationTask1Definition.description, persistedIntegrationTask1Definition.ownerEmail, 0,
-                0, persistedIntegrationTask1Definition.responseTimeoutSeconds)
+                0, persistedIntegrationTask1Definition.responseTimeoutSeconds,
+                persistedIntegrationTask1Definition.totalTimeoutSeconds)
         metadataService.updateTaskDef(modifiedIntegrationTask1Definition)
 
         when: "A fork join workflow is started"
